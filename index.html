@@ -4,12 +4,41 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CYBER MYSTERY | TECH ARENA</title>
 <style>
-:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#162b40;background:#f4f7fa}*{box-sizing:border-box}body{margin:0}.wrap{max-width:920px;margin:auto;padding:22px}.hero{background:#10365a;color:white;border-radius:18px;padding:25px 30px}.hero h1{margin:0;font-size:2rem}.hero p{margin:8px 0 0;color:#d5e8f8}.pill{display:inline-block;background:#197d72;padding:5px 11px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:9px}.card{background:white;border:1px solid #dce5ec;border-radius:14px;padding:21px;margin-top:17px;box-shadow:0 2px 10px #18364a0b}h2{font-size:1.15rem;margin:0 0 12px}p{line-height:1.5}.muted{color:#597083}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.mail{border:1px solid #d5e0e9;border-radius:10px;padding:13px;background:#f9fbfd}.mail b{color:#0e4268}.mail p{margin:8px 0}.url{overflow-wrap:anywhere;font-size:13px;background:#edf3f8;padding:7px;border-radius:6px}label{display:block;margin:9px 0;line-height:1.4}input[type=text]{width:100%;padding:12px;border:1px solid #b8cad7;border-radius:8px;font-size:16px}input[type=radio]{accent-color:#116e79}button{background:#116b72;color:white;border:0;border-radius:9px;padding:12px 18px;font-size:15px;font-weight:700;cursor:pointer}button:hover{background:#0b5157}button:disabled{opacity:.45;cursor:not-allowed}.status{margin-top:12px;padding:10px;border-radius:8px;background:#eef5fa}.ok{background:#e7f6ed;color:#165d3b}.bad{background:#fff0e9;color:#8b3e20}.hidden{display:none}.steps{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.step{background:#e9f1f7;color:#2d5169;border-radius:20px;padding:6px 11px;font-size:13px}.step.done{background:#c8f1d7;color:#185c38}.log{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;white-space:pre-wrap;line-height:1.7;background:#102438;color:#e4f1ff;padding:14px;border-radius:10px;overflow:auto}.result{text-align:center;background:#f0f8f3;border:2px solid #71ba89;border-radius:13px;padding:23px}.token{font:700 25px ui-monospace,Consolas,monospace;letter-spacing:2px;color:#0d6545;overflow-wrap:anywhere}.foot{font-size:12px;color:#697d8b;text-align:center;margin:20px 0}@media print{button{display:none}.hero{color:#10365a;background:white;border:1px solid #aaa}}
+:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#162b40;background:#f4f7fa}*{box-sizing:border-box}body{margin:0}.wrap{max-width:920px;margin:auto;padding:22px}.hero{background:#10365a;color:white;border-radius:18px;padding:25px 30px}.hero h1{margin:0;font-size:2rem}.hero p{margin:8px 0 0;color:#d5e8f8}.pill{display:inline-block;background:#197d72;padding:5px 11px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:9px}.card{background:white;border:1px solid #dce5ec;border-radius:14px;padding:21px;margin-top:17px;box-shadow:0 2px 10px #18364a0b}h2{font-size:1.15rem;margin:0 0 12px}p{line-height:1.5}.muted{color:#597083}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.mail{border:1px solid #d5e0e9;border-radius:10px;padding:13px;background:#f9fbfd}.mail b{color:#0e4268}.mail p{margin:8px 0}.url{overflow-wrap:anywhere;font-size:13px;background:#edf3f8;padding:7px;border-radius:6px}label{display:block;margin:9px 0;line-height:1.4}input[type=text]{width:100%;padding:12px;border:1px solid #b8cad7;border-radius:8px;font-size:16px}input[type=radio]{accent-color:#116e79}button{background:#116b72;color:white;border:0;border-radius:9px;padding:12px 18px;font-size:15px;font-weight:700;cursor:pointer}button:hover{background:#0b5157}button:disabled{opacity:.45;cursor:not-allowed}.status{margin-top:12px;padding:10px;border-radius:8px;background:#eef5fa}.ok{background:#e7f6ed;color:#165d3b}.bad{background:#fff0e9;color:#8b3e20}.hidden{display:none}.steps{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.step{background:#e9f1f7;color:#2d5169;border-radius:20px;padding:6px 11px;font-size:13px}.step.done{background:#c8f1d7;color:#185c38}.log{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;white-space:pre-wrap;line-height:1.7;background:#102438;color:#e4f1ff;padding:14px;border-radius:10px;overflow:auto}.result{text-align:center;background:#f0f8f3;border:2px solid #71ba89;border-radius:13px;padding:23px}.token{font:700 25px ui-monospace,Consolas,monospace;letter-spacing:2px;color:#0d6545;overflow-wrap:anywhere}.foot{font-size:12px;color:#697d8b;text-align:center;margin:20px 0}.cert-eyebrow{font-size:12px;letter-spacing:1px;font-weight:800;color:#1c5671}
+.cert-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;text-align:left;margin:22px 0}
+.cert-stats>div{border:1px solid #cbded4;border-radius:9px;padding:13px;background:white}
+.cert-stats span{display:block;font-size:12px}
+.cert-stats strong{display:block;font-size:20px;overflow-wrap:anywhere}
+.sign-line{margin-top:30px;font-size:13px}
+.print-actions{text-align:center}
+#clockPanel{position:sticky;top:8px;z-index:30;display:flex;align-items:center;gap:12px;padding:10px 16px;margin-top:12px;border-radius:12px;background:#0b3552;color:#fff;box-shadow:0 4px 16px #0b233954}
+#clockPanel.hidden{display:none}
+.clock-caption{font-size:12px;font-weight:800;letter-spacing:.7px;color:#b5e8dd}
+.clock-team{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%}
+.clock-number{margin-left:auto;font:800 23px ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}
+.card{scroll-margin-top:86px}
+@media(max-width:480px){.clock-caption{font-size:10px}.clock-team{max-width:30%}.clock-number{font-size:20px}}
+
+@media(max-width:500px){.cert-stats{grid-template-columns:1fr}}
+@media print{
+ @page{size:A4;margin:16mm}
+ body{background:#fff}
+ body *{visibility:hidden!important}
+ #certificate,#certificate *{visibility:visible!important}
+ #certificate{position:absolute;left:0;top:0;width:100%;padding:22px;border:2px solid #1d6e55;background:white!important;color:#162b40!important;box-shadow:none}
+ .cert-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .wrap{max-width:none;padding:0}
+}
 </style>
 </head>
 <body><main class="wrap">
 <header class="hero"><span class="pill">TECH ARENA · ESTACIÓN DE CIBERSEGURIDAD</span><h1>CYBER MYSTERY</h1><p>El expediente comprometido · Investiga, descubre y recupera la clave.</p><div class="steps"><span class="step" id="s1">01 · Phishing</span><span class="step" id="s2">02 · Mensaje oculto</span><span class="step" id="s3">03 · Bitácora</span><span class="step" id="s4">04 · Integridad</span></div></header>
-<section class="card" id="intro"><h2>Tu misión</h2><p>Un acceso sospechoso fue detectado en FEI Tech Labs, una organización ficticia. Tu equipo debe revisar cuatro evidencias y recuperar el expediente. <b>No necesitas haber cursado ciberseguridad:</b> todas las pistas están aquí.</p><p class="muted">Tiempo sugerido: 10–15 minutos. Cuatro pruebas de 10 puntos. El puntaje se calcula al concluir la investigación. Puedes volver a intentar.</p><label for="team"><b>Nombre o número de equipo</b></label><input id="team" type="text" maxlength="45" placeholder="Ejemplo: Equipo 07" autocomplete="off"><p><button id="start">Comenzar investigación</button></p><div id="introMsg" role="status"></div></section>
+<div id="clockPanel" class="hidden" role="timer" aria-label="Tiempo transcurrido de la misión">
+  <span class="clock-caption">MISIÓN EN CURSO</span>
+  <span class="clock-team" id="clockTeam"></span>
+  <span class="clock-number" id="elapsed" aria-live="off">00:00</span>
+</div>
+<section class="card" id="intro"><h2>Tu misión</h2><p>Un acceso sospechoso fue detectado en FEI Tech Labs, una organización ficticia. Tu equipo debe revisar cuatro evidencias y recuperar el expediente. <b>No necesitas haber cursado ciberseguridad:</b> todas las pistas están aquí.</p><p class="muted">Tiempo estimado: 8–10 minutos. Cuatro pruebas de 10 puntos. El puntaje se calcula al concluir la investigación. Puedes volver a intentar.</p><label for="team"><b>Nombre o número de equipo</b></label><input id="team" type="text" maxlength="45" placeholder="Ejemplo: Equipo 07" autocomplete="off"><p><button id="start">Comenzar investigación</button></p><div id="introMsg" role="status"></div></section>
 <section class="card hidden" id="phase1"><h2>Evidencia 01 · El correo que inició todo</h2><p>Se encontraron cinco correos recibidos antes del incidente. <b>Selecciona cuál podría haber iniciado el robo de acceso.</b> No todos los mensajes extraños son maliciosos; analiza remitentes, enlaces y solicitudes.</p><div class="grid">
 <div class="mail"><b>Correo A</b><p><small>De: avisos@intranet.feilabs.example</small></p><p><b>Mantenimiento programado</b></p><p>El repositorio estará en mantenimiento el viernes. No es necesario realizar ninguna acción.</p><div class="url">intranet.feilabs.example/avisos</div></div>
 <div class="mail"><b>Correo B</b><p><small>De: soporte@feilabs-seguridad.example</small></p><p><b>URGENTE: Suspensión de cuenta</b></p><p>Verifica tu usuario y contraseña en los próximos 15 minutos o perderás el acceso.</p><div class="url">verificacion-feilabs.example/acceso</div></div>
@@ -31,18 +60,36 @@
 09:18 | 198.51.100.23  | admin | LOGIN_OK
 09:19 | 198.51.100.23  | admin | FILE_DOWNLOAD</div><p class="muted">Pista: LOGIN_FAIL = acceso fallido; LOGIN_OK = acceso exitoso; FILE_DOWNLOAD = descarga. Las direcciones IP son de ejemplo.</p><label for="answer3"><b>IP que debe investigarse</b></label><input type="text" id="answer3" placeholder="Ejemplo: 192.0.2.10" inputmode="decimal"><p><button id="check3">Registrar evidencia 03</button></p><div id="msg3" role="status"></div></section>
 <section class="card hidden" id="phase4"><h2>Evidencia 04 · ¿Se modificó el expediente?</h2><p>El equipo de respuesta conservó un <b>SHA-256 de referencia</b> del archivo original. Dos archivos de texto han sido recuperados. Calcula sus huellas y selecciona cuál <b>no coincide</b> con el original.</p><div class="log">SHA-256 de referencia del expediente original:<br><span id="referenceHash"></span></div><div class="grid"><div class="mail"><b>Archivo 1 · informe_A.txt</b><p class="muted">Documento de prueba recuperado.</p><button type="button" id="hashA">Calcular SHA-256</button><div id="hashOutA" class="url">Sin calcular</div></div><div class="mail"><b>Archivo 2 · informe_B.txt</b><p class="muted">Documento de prueba recuperado.</p><button type="button" id="hashB">Calcular SHA-256</button><div id="hashOutB" class="url">Sin calcular</div></div></div><p class="muted"><b>Pista:</b> si cambia el contenido, cambia su huella digital. Los archivos están simulados en la página; no se leen archivos de tu equipo.</p><label><input type="radio" name="integrity" value="A"> informe_A.txt</label><label><input type="radio" name="integrity" value="B"> informe_B.txt</label><p><button id="check4">Registrar análisis de integridad</button></p><div id="msg4" role="status"></div></section>
-<section class="card hidden" id="finish"><div class="result"><h2>EXPEDIENTE RECUPERADO</h2><p>Equipo: <b id="outTeam"></b></p><p>Puntaje: <b id="outScore"></b> / 40</p><p>Token de acreditación:</p><div class="token" id="outToken"></div><p class="muted">Muestra esta pantalla al responsable de TECH ARENA para registrar tu resultado.</p><button onclick="window.print()">Imprimir comprobante</button></div></section>
+<section class="card hidden" id="finish">
+<div class="result" id="certificate">
+<p class="cert-eyebrow">TECH ARENA · ESTACIÓN DE CIBERSEGURIDAD</p>
+<h2>CONSTANCIA DE RESULTADO</h2>
+<p class="muted">CYBER MYSTERY · El expediente comprometido</p>
+<div class="cert-stats">
+  <div><span class="muted">Equipo</span><strong id="outTeam"></strong></div>
+  <div><span class="muted">Puntaje</span><strong><span id="outScore"></span> / 40</strong></div>
+  <div><span class="muted">Tiempo</span><strong id="outTime"></strong></div>
+  <div><span class="muted">Fecha y hora</span><strong id="outDate"></strong></div>
+</div>
+<p><b>Token de acreditación</b></p>
+<div class="token" id="outToken"></div>
+<p class="muted">Presenta esta pantalla al responsable de la estación para el registro oficial.</p>
+<div class="sign-line">Validación del responsable: __________________________</div>
+</div>
+<p class="print-actions"><button type="button" id="printCertificate">Imprimir constancia / Guardar como PDF</button></p>
+<p class="muted">El registro oficial lo realiza el responsable de TECH ARENA. La constancia es informativa y no verifica por sí sola la autenticidad del resultado.</p>
+</section>
 <p class="foot">Actividad educativa simulada · Sin cuentas, credenciales, servidores ni datos reales. Funciona sin Internet.</p></main>
 <script>
 (()=>{'use strict';
-let team='',score=0,step=0,chosenMail='',hashReady={A:false,B:false};const misses=[0,0,0,0];
+let team='',score=0,step=0,chosenMail='',hashReady={A:false,B:false};let startedAt=0,finishedAt=0,clockInterval=null;const misses=[0,0,0,0];
 const $=id=>document.getElementById(id);
 function message(id,good,txt){$(id).textContent='';$(id).className='status'}
 function normalize(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toUpperCase()}
 function pass(n){const points=Math.max(0,10-misses[n-1]*2);score+=points;$('s'+n).classList.add('done');step=n;$('phase'+n).classList.add('hidden');if(n===1)$('verify1').classList.add('hidden');if(n<4){$('phase'+(n+1)).classList.remove('hidden');$('phase'+(n+1)).scrollIntoView({behavior:'smooth',block:'start'})}else finish()}
 function wrong(n){misses[n-1]++}
 const mailIds=['A','B','C','D','E'];$('mailOptions').innerHTML=mailIds.map(id=>`<label><input type="radio" name="mail" value="${id}"> Correo ${id}</label>`).join('');
-$('start').onclick=()=>{const name=$('team').value.trim();if(!name){$('introMsg').textContent='Escribe el nombre o número de equipo.';return}team=name;$('team').disabled=true;$('start').disabled=true;$('phase1').classList.remove('hidden');$('phase1').scrollIntoView({behavior:'smooth'})};
+$('start').onclick=()=>{const name=$('team').value.trim();if(!name){$('introMsg').textContent='Escribe el nombre o número de equipo.';return}team=name;startedAt=Date.now();$('clockTeam').textContent=team;$('clockPanel').classList.remove('hidden');clockInterval=setInterval(()=>{$('elapsed').textContent=formatTime(Date.now()-startedAt)},1000);$('team').disabled=true;$('start').disabled=true;$('phase1').classList.remove('hidden');$('phase1').scrollIntoView({behavior:'smooth'})};
 $('check1').onclick=()=>{if(step!==0)return;const selected=document.querySelector('input[name="mail"]:checked');if(!selected)return;chosenMail=selected.value;$('decoy').classList.add('hidden');$('verify1').classList.add('hidden');if(chosenMail==='B'){$('verify1').classList.remove('hidden');$('verify1').scrollIntoView({behavior:'smooth'})}else{wrong(1);$('decoyLog').textContent='REGISTRO '+chosenMail+'\nOrigen: expediente de comunicaciones\nAcción: notificación o promoción\nCredenciales solicitadas en este registro: no acreditadas';$('decoy').classList.remove('hidden');$('decoy').scrollIntoView({behavior:'smooth'})}};
 $('checkDecoy').onclick=()=>{const answer=document.querySelector('input[name="decoyAnswer"]:checked');if(!answer)return;if(answer.value==='yes'){wrong(1);return}$('decoy').classList.add('hidden');document.querySelectorAll('input[name="mail"]').forEach(x=>x.checked=false);document.querySelectorAll('input[name="decoyAnswer"]').forEach(x=>x.checked=false);$('phase1').scrollIntoView({behavior:'smooth'})};
 $('confirm1').onclick=()=>{if(step!==0||chosenMail!=='B')return;const selected=[...document.querySelectorAll('input[name="reason"]:checked')].map(x=>x.value);if(selected.length!==2)return;if(selected.includes('domain')&&selected.includes('urgency')){pass(1)}else{wrong(1)}};
@@ -54,6 +101,20 @@ const hashes={};async function setupHash(){try{hashes.A=await hashString(base);h
 setupHash();
 $('hashA').onclick=()=>{if(!hashes.A)return;$('hashOutA').textContent=hashes.A;hashReady.A=true};$('hashB').onclick=()=>{if(!hashes.B)return;$('hashOutB').textContent=hashes.B;hashReady.B=true};
 $('check4').onclick=()=>{if(step!==3)return;if(!hashReady.A||!hashReady.B)return;const chosen=document.querySelector('input[name="integrity"]:checked');if(!chosen)return;if(chosen.value==='B')pass(4);else wrong(4)};
-function finish(){$('finish').classList.remove('hidden');$('outTeam').textContent=team;$('outScore').textContent=score;const token='CM-'+String(score).padStart(2,'0')+'-'+String(Math.floor(Math.random()*9000)+1000);$('outToken').textContent=token;$('finish').scrollIntoView({behavior:'smooth'})}
+function formatTime(ms){const seconds=Math.floor(ms/1000);return String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
+function finish(){
+ finishedAt=Date.now();clearInterval(clockInterval);$('clockPanel').classList.add('hidden');
+ $('elapsed').textContent=formatTime(finishedAt-startedAt);
+ $('finish').classList.remove('hidden');
+ $('outTeam').textContent=team;
+ $('outScore').textContent=score;
+ $('outTime').textContent=formatTime(finishedAt-startedAt);
+ $('outDate').textContent=new Date(finishedAt).toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'});
+ const random=new Uint32Array(1);crypto.getRandomValues(random);
+ const token='CM-'+String(score).padStart(2,'0')+'-'+String(random[0]%1000000).padStart(6,'0');
+ $('outToken').textContent=token;
+ $('finish').scrollIntoView({behavior:'smooth'});
+}
+$('printCertificate').onclick=()=>{if(!finishedAt)return;window.print()};
 })();
 </script></body></html>
