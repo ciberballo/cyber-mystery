@@ -11,12 +11,12 @@
 .cert-stats strong{display:block;font-size:20px;overflow-wrap:anywhere}
 .sign-line{margin-top:30px;font-size:13px}
 .print-actions{text-align:center}
-#clockPanel{position:sticky;top:8px;z-index:30;display:flex;align-items:center;gap:12px;padding:10px 16px;margin-top:12px;border-radius:12px;background:#0b3552;color:#fff;box-shadow:0 4px 16px #0b233954}
-#clockPanel.hidden{display:none}
+#clockPanel{position:fixed;top:0;left:0;right:0;width:100%;z-index:9999;border-radius:0;display:flex;align-items:center;gap:12px;padding:10px 16px;margin-top:12px;border-radius:12px;background:#0b3552;color:#fff;box-shadow:0 4px 16px #0b233954}
+#clockPanel.hidden{display:none!important}body.mission-active{padding-top:72px}
 .clock-caption{font-size:12px;font-weight:800;letter-spacing:.7px;color:#b5e8dd}
 .clock-team{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%}
 .clock-number{margin-left:auto;font:800 23px ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}
-.card{scroll-margin-top:86px}
+.card{scroll-margin-top:85px}
 @media(max-width:480px){.clock-caption{font-size:10px}.clock-team{max-width:30%}.clock-number{font-size:20px}}
 
 @media(max-width:500px){.cert-stats{grid-template-columns:1fr}}
@@ -59,7 +59,23 @@
 09:17 | 198.51.100.23  | admin | LOGIN_FAIL
 09:18 | 198.51.100.23  | admin | LOGIN_OK
 09:19 | 198.51.100.23  | admin | FILE_DOWNLOAD</div><p class="muted">Pista: LOGIN_FAIL = acceso fallido; LOGIN_OK = acceso exitoso; FILE_DOWNLOAD = descarga. Las direcciones IP son de ejemplo.</p><label for="answer3"><b>IP que debe investigarse</b></label><input type="text" id="answer3" placeholder="Ejemplo: 192.0.2.10" inputmode="decimal"><p><button id="check3">Registrar evidencia 03</button></p><div id="msg3" role="status"></div></section>
-<section class="card hidden" id="phase4"><h2>Evidencia 04 · ¿Se modificó el expediente?</h2><p>El equipo de respuesta conservó un <b>SHA-256 de referencia</b> del archivo original. Dos archivos de texto han sido recuperados. Calcula sus huellas y selecciona cuál <b>no coincide</b> con el original.</p><div class="log">SHA-256 de referencia del expediente original:<br><span id="referenceHash"></span></div><div class="grid"><div class="mail"><b>Archivo 1 · informe_A.txt</b><p class="muted">Documento de prueba recuperado.</p><button type="button" id="hashA">Calcular SHA-256</button><div id="hashOutA" class="url">Sin calcular</div></div><div class="mail"><b>Archivo 2 · informe_B.txt</b><p class="muted">Documento de prueba recuperado.</p><button type="button" id="hashB">Calcular SHA-256</button><div id="hashOutB" class="url">Sin calcular</div></div></div><p class="muted"><b>Pista:</b> si cambia el contenido, cambia su huella digital. Los archivos están simulados en la página; no se leen archivos de tu equipo.</p><label><input type="radio" name="integrity" value="A"> informe_A.txt</label><label><input type="radio" name="integrity" value="B"> informe_B.txt</label><p><button id="check4">Registrar análisis de integridad</button></p><div id="msg4" role="status"></div></section>
+<section class="card hidden" id="phase4">
+<h2>Evidencia 04 · ¿Se modificó el expediente?</h2>
+<p>Se recuperaron dos versiones del mismo expediente. <b>Calcula tú mismo el SHA-256</b> del contenido de cada una usando una herramienta externa. Después compara las dos huellas digitales y registra tus conclusiones.</p>
+<p><a href="https://emn178.github.io/online-tools/sha256.html" target="_blank" rel="noopener noreferrer"><b>Abrir herramienta externa para calcular SHA-256 ↗</b></a></p>
+<div class="grid">
+<div class="mail"><b>Archivo 1 · informe_A.txt (contenido simulado)</b><p class="muted">Copia la cadena completa, sin agregar espacios ni saltos de línea.</p><div class="url" id="fileTextA" style="white-space:normal;overflow-wrap:anywhere"></div><p><button type="button" id="copyA">Copiar contenido 1</button></p></div>
+<div class="mail"><b>Archivo 2 · informe_B.txt (contenido simulado)</b><p class="muted">Copia la cadena completa, sin agregar espacios ni saltos de línea.</p><div class="url" id="fileTextB" style="white-space:normal;overflow-wrap:anywhere"></div><p><button type="button" id="copyB">Copiar contenido 2</button></p></div>
+</div>
+<p class="muted"><b>Instrucciones:</b> pega cada cadena por separado en la herramienta SHA-256, calcula las dos huellas y compáralas. Los contenidos representan archivos ficticios; no debes subir ningún archivo real.</p>
+<label for="hashAnswer"><b>1. ¿Coinciden los dos hashes SHA-256?</b></label>
+<select id="hashAnswer" style="width:100%;padding:11px;border:1px solid #b8cad7;border-radius:8px;font-size:16px"><option value="">Selecciona una respuesta</option><option value="yes">Sí, son idénticos</option><option value="no">No, son diferentes</option></select>
+<label for="securityAnswer"><b>2. ¿Qué propiedad de seguridad estamos comprobando?</b></label>
+<select id="securityAnswer" style="width:100%;padding:11px;border:1px solid #b8cad7;border-radius:8px;font-size:16px"><option value="">Selecciona una respuesta</option><option value="conf">Confidencialidad</option><option value="integ">Integridad</option><option value="avail">Disponibilidad</option></select>
+<label for="conclusionAnswer"><b>3. ¿Se puede afirmar que ambas versiones conservan exactamente el mismo contenido?</b></label>
+<select id="conclusionAnswer" style="width:100%;padding:11px;border:1px solid #b8cad7;border-radius:8px;font-size:16px"><option value="">Selecciona una respuesta</option><option value="yes">Sí</option><option value="no">No</option></select>
+<p><button id="check4">Registrar análisis de integridad</button></p><div id="msg4" role="status"></div>
+</section>
 <section class="card hidden" id="finish">
 <div class="result" id="certificate">
 <p class="cert-eyebrow">TECH ARENA · ESTACIÓN DE CIBERSEGURIDAD</p>
@@ -89,21 +105,29 @@ function normalize(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').t
 function pass(n){const points=Math.max(0,10-misses[n-1]*2);score+=points;$('s'+n).classList.add('done');step=n;$('phase'+n).classList.add('hidden');if(n===1)$('verify1').classList.add('hidden');if(n<4){$('phase'+(n+1)).classList.remove('hidden');$('phase'+(n+1)).scrollIntoView({behavior:'smooth',block:'start'})}else finish()}
 function wrong(n){misses[n-1]++}
 const mailIds=['A','B','C','D','E'];$('mailOptions').innerHTML=mailIds.map(id=>`<label><input type="radio" name="mail" value="${id}"> Correo ${id}</label>`).join('');
-$('start').onclick=()=>{const name=$('team').value.trim();if(!name){$('introMsg').textContent='Escribe el nombre o número de equipo.';return}team=name;startedAt=Date.now();$('clockTeam').textContent=team;$('clockPanel').classList.remove('hidden');clockInterval=setInterval(()=>{$('elapsed').textContent=formatTime(Date.now()-startedAt)},1000);$('team').disabled=true;$('start').disabled=true;$('phase1').classList.remove('hidden');$('phase1').scrollIntoView({behavior:'smooth'})};
+$('start').onclick=()=>{const name=$('team').value.trim();if(!name){$('introMsg').textContent='Escribe el nombre o número de equipo.';return}team=name;startedAt=Date.now();document.body.classList.add('mission-active');$('elapsed').textContent='00:00';$('clockTeam').textContent=team;$('clockPanel').classList.remove('hidden');clockInterval=setInterval(()=>{$('elapsed').textContent=formatTime(Date.now()-startedAt)},1000);$('team').disabled=true;$('start').disabled=true;$('phase1').classList.remove('hidden');$('phase1').scrollIntoView({behavior:'smooth'})};
 $('check1').onclick=()=>{if(step!==0)return;const selected=document.querySelector('input[name="mail"]:checked');if(!selected)return;chosenMail=selected.value;$('decoy').classList.add('hidden');$('verify1').classList.add('hidden');if(chosenMail==='B'){$('verify1').classList.remove('hidden');$('verify1').scrollIntoView({behavior:'smooth'})}else{wrong(1);$('decoyLog').textContent='REGISTRO '+chosenMail+'\nOrigen: expediente de comunicaciones\nAcción: notificación o promoción\nCredenciales solicitadas en este registro: no acreditadas';$('decoy').classList.remove('hidden');$('decoy').scrollIntoView({behavior:'smooth'})}};
 $('checkDecoy').onclick=()=>{const answer=document.querySelector('input[name="decoyAnswer"]:checked');if(!answer)return;if(answer.value==='yes'){wrong(1);return}$('decoy').classList.add('hidden');document.querySelectorAll('input[name="mail"]').forEach(x=>x.checked=false);document.querySelectorAll('input[name="decoyAnswer"]').forEach(x=>x.checked=false);$('phase1').scrollIntoView({behavior:'smooth'})};
 $('confirm1').onclick=()=>{if(step!==0||chosenMail!=='B')return;const selected=[...document.querySelectorAll('input[name="reason"]:checked')].map(x=>x.value);if(selected.length!==2)return;if(selected.includes('domain')&&selected.includes('urgency')){pass(1)}else{wrong(1)}};
 $('check2').onclick=()=>{if(step!==1)return;if(normalize($('answer2').value)==='SEGURO')pass(2);else wrong(2)};
 $('check3').onclick=()=>{if(step!==2)return;if($('answer3').value.trim()==='198.51.100.23')pass(3);else wrong(3)};
-const base='TECH ARENA 2026 | Expediente FEI | Estado: aprobado';const modified='TECH ARENA 2026 | Expediente FEI | Estado: modificado';
-function hashString(s){const bytes=new TextEncoder().encode(s);return crypto.subtle.digest('SHA-256',bytes).then(buf=>[...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join(''))}
-const hashes={};async function setupHash(){try{hashes.A=await hashString(base);hashes.B=await hashString(modified);$('referenceHash').textContent=hashes.A}catch(e){$('referenceHash').textContent='No se pudo usar SHA-256 en este navegador.';for(const id of ['hashA','hashB'])$(id).disabled=true}}
-setupHash();
-$('hashA').onclick=()=>{if(!hashes.A)return;$('hashOutA').textContent=hashes.A;hashReady.A=true};$('hashB').onclick=()=>{if(!hashes.B)return;$('hashOutB').textContent=hashes.B;hashReady.B=true};
-$('check4').onclick=()=>{if(step!==3)return;if(!hashReady.A||!hashReady.B)return;const chosen=document.querySelector('input[name="integrity"]:checked');if(!chosen)return;if(chosen.value==='B')pass(4);else wrong(4)};
+const base="TECH ARENA 2026 | Expediente FEI | Folio: TA-0472 | Responsable: Coordinacion de Sistemas | Area: Laboratorio de Redes | Estado: AUTORIZADO | Permiso: lectura | Revision: 2026-11-21 | Respaldo: verificado | Destino: repositorio interno | Clasificacion: uso academico";const modified="TECH ARENA 2026 | Expediente FEI | Folio: TA-0472 | Responsable: Coordinacion de Sistemas | Area: Laboratorio de Redes | Estado: AUTORIZADO | Permiso: escritura | Revision: 2026-11-21 | Respaldo: verificado | Destino: repositorio interno | Clasificacion: uso academico";
+$('fileTextA').textContent=base;$('fileTextB').textContent=modified;
+async function copyEvidence(text,button){
+  try{await navigator.clipboard.writeText(text);button.textContent='Contenido copiado';}
+  catch(e){button.textContent='Selecciona y copia el texto manualmente';}
+}
+$('copyA').onclick=()=>copyEvidence(base,$('copyA'));
+$('copyB').onclick=()=>copyEvidence(modified,$('copyB'));
+$('check4').onclick=()=>{
+  if(step!==3)return;
+  const h=$('hashAnswer').value,s=$('securityAnswer').value,c=$('conclusionAnswer').value;
+  if(!h||!s||!c)return;
+  if(h==='no'&&s==='integ'&&c==='no')pass(4);else wrong(4);
+};
 function formatTime(ms){const seconds=Math.floor(ms/1000);return String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
 function finish(){
- finishedAt=Date.now();clearInterval(clockInterval);$('clockPanel').classList.add('hidden');
+ finishedAt=Date.now();clearInterval(clockInterval);document.body.classList.remove('mission-active');$('clockPanel').classList.add('hidden');
  $('elapsed').textContent=formatTime(finishedAt-startedAt);
  $('finish').classList.remove('hidden');
  $('outTeam').textContent=team;
