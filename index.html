@@ -26,9 +26,9 @@
 <p>El Blue Team interceptó tres mensajes. Para avanzar, tendrás que descifrarlos <b>uno por uno</b>. Cada respuesta se registra una sola vez: <b>verifícala antes de enviarla</b>. Si es incorrecta, no ganarás los puntos de ese mensaje.</p>
 <div class="crypto-step" id="cryptoStep1">
 <h3 class="http-big">¿QUÉ ES EL CIFRADO CÉSAR?</h3>
-<p class="http-explain">Es una técnica sencilla que <b>sustituye cada letra por otra</b> desplazándola un número fijo de posiciones en el alfabeto. Por ejemplo, con un desplazamiento de 3, la A se convierte en D. Para descifrar, se retrocede ese mismo número.</p>
-<p><b>Investiga en Internet una herramienta para descifrar el cifrado César.</b> Este mensaje utiliza un desplazamiento de 3 letras:</p>
-<div class="crypto-message">YDV PXB ELHQ</div>
+<p class="http-explain">El <b>cifrado César</b> sustituye cada letra por otra situada cierto número de posiciones más adelante en el alfabeto. Para descifrar, se recorre el alfabeto en sentido contrario. Cuando se llega al extremo, se continúa desde el otro extremo.</p>
+<p><b>Hazlo a mano:</b> en una hoja escribe las <b>26 letras del abecedario de la A a la Z, sin incluir la Ñ</b>. Debajo, escribe nuevamente las letras como referencia para desplazarlas. <b>Prueba primero un corrimiento de una posición hacia adelante</b> en el mensaje; si no forma palabras con sentido, prueba dos, después tres y así sucesivamente, <b>una posición a la vez</b>, hasta encontrar una frase comprensible. Escribe la frase descubierta antes de confirmar tu respuesta.</p>
+<div class="crypto-message">AFX RZD GNJS</div>
 <label for="cryptoAnswer1"><b>Escribe el mensaje descifrado <span class="pts">7 puntos</span></b></label>
 <input id="cryptoAnswer1" type="text" placeholder="Mensaje en español" autocomplete="off" spellcheck="false"/>
 <button id="cryptoSubmit1" type="button">Confirmar mensaje 1 (definitivo)</button><p id="cryptoStatus1" class="crypto-status" aria-live="polite"></p>
@@ -44,7 +44,7 @@
 </div>
 <div class="crypto-step hidden" id="cryptoStep3">
 <h3 class="http-big">UN CIFRADO MUY POCO SOFISTICADO</h3>
-<p class="http-explain">Los atacantes <b>no fueron muy buenos al cifrar este mensaje</b>: solamente cambiaron algunas letras por números. Sustituyeron <b>A por 4, E por 3, I por 1 y O por 0</b>. Aunque parece sencillo, esta vez el mensaje es un párrafo largo. Lee con atención, recupera las vocales y revisa toda la frase antes de enviarla.</p>
+<p class="http-explain">Los atacantes <b>no fueron muy buenos al cifrar este mensaje</b>:  <b>Descubre el patrón por tu cuenta</b>, recupera el párrafo original en mayúsculas y revísalo completo antes de enviarlo. Recuerda que <b>solo tienes una oportunidad</b>.</p>
 <div class="crypto-message">3N 3L S1L3NC10 D3 L4 N0CH3, CU4ND0 L4S LUC3S D3 L4 C1UD4D P4R3C14N 4P4G4RS3 UN4 4 UN4, 3L V13J0 GU4RD14N C0MPR3ND10 QU3 L0S S3CR3T0S N0 D3S4P4R3C3N C0N 3L P4S0 D3L T13MP0, S1N0 QU3 P3RM4N3C3N 0CULT0S 3NTR3 L4S P4G1N4S QU3 N4D13 S3 4TR3V3 4 L33R. 3NT0NC3S C3RR0 L4 PU3RT4, GU4RD0 L4 LL4V3 Y D3C1D10 QU3 S0L0 QU13N 0BS3RV4R4 C0N P4C13NC14 P0DR14 D3SCUBR1R L4 V3RD4D 3SC0ND1D4 D3TR4S D3 4QU3L M1ST3R10.</div>
 <label for="cryptoAnswer3"><b>Escribe la frase original EN MAYÚSCULAS <span class="pts">6 puntos</span></b></label>
 <textarea id="cryptoAnswer3" rows="7" placeholder="ESCRIBE AQUÍ EL PÁRRAFO COMPLETO EN MAYÚSCULAS" autocomplete="off" spellcheck="false" style="width:100%;box-sizing:border-box;min-height:150px;padding:12px;border:1px solid #9db5c6;border-radius:8px;font-size:16px"></textarea>
